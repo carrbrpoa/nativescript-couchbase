@@ -1,5 +1,7 @@
 # This Project is No Longer Supported Or Maintained
 
+For an alternative, please visit https://github.com/triniwiz/nativescript-couchbase-plugin 
+
 
 # Couchbase Lite Plugin for Telerik NativeScript
 
