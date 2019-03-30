@@ -16,9 +16,29 @@ export class Couchbase {
         try {
             this.manager = new com.couchbase.lite.Manager(new com.couchbase.lite.android.AndroidContext(this.context), null);
             this.database = this.manager.getDatabase(databaseName);
+            this.database.setMaxRevTreeDepth(1);
+            this.database.compact();
         } catch (exception) {
             console.error("MANAGER ERROR:", exception.message);
             throw new Error("MANAGER ERROR: " + exception.message);
+        }
+    }
+
+    public setMaxRevTreeDepth(maxRevTreeDepth: number) {
+        try {
+            this.database.setMaxRevTreeDepth(maxRevTreeDepth);
+        } catch (exception) {
+            console.error("SETMAXREVTREEDEPTH ERROR:", exception.message);
+            throw new Error("SETMAXREVTREEDEPTH ERROR: " + exception.message);
+        }
+    }
+
+    public compact() {
+        try {
+            this.database.compact();
+        } catch (exception) {
+            console.error("COMPACT ERROR:", exception.message);
+            throw new Error("COMPACT ERROR: " + exception.message);
         }
     }
 
